@@ -24,6 +24,9 @@ variable "artifacts" {
 variable "function_version" { }
 variable "env_name" { }
 
+variable "is_azure_artifact" {
+ type = bool({})
+}
 
 variable "common_vars" {
   type = object({

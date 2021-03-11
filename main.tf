@@ -1,11 +1,37 @@
 
 terraform {
   required_version = ">= 0.13"
-  
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = ">= 2.45.1"
+    }
+    vault = {
+      source = "hashicorp/vault"
+      version = ">= 2.15.0"
+    }
+    consul = {
+      source = "hashicorp/consul"
+      version = ">= 2.10.0"
+    }
+    http = {
+      source = "hashicorp/http"
+      version = ">= 2.0.0"
+    }
+    time = {
+      source = "hashicorp/time"
+      version = ">= 0.6.0"
+    }
+    null = {
+      source = "hashicorp/null"
+      version = ">= 3.0.0"
+    }
+  }
 }
 
-
-
+provider "azurerm" {
+  features {}
+}
 
 # ==================================================
 # Locals

@@ -24,3 +24,7 @@
 #   datacenter        = var.hashicorp.consul.datacenter
 #   token             = var.hashicorp.consul.token
 # }
+
+provider "azurerm" {
+    features {}
+}

@@ -23,7 +23,6 @@ resource "consul_service" "fn_svc" {
     azurerm_function_app.fnapp,
     time_sleep.wait_x_seconds_after_creation,
     null_resource.az_login,
-    null_resource.az_subscription_set,
     time_sleep.wait_x_seconds_after_deploy,
     time_sleep.wait_x_seconds_after_vnet_config
   ]

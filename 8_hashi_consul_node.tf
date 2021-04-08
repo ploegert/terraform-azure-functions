@@ -11,7 +11,6 @@ resource "consul_node" "fn_node" {
     time_sleep.wait_x_seconds_after_creation,
     null_resource.az_login,
     null_resource.az_subscription_set,
-    null_resource.download,
     time_sleep.wait_x_seconds_after_deploy,
     time_sleep.wait_x_seconds_after_vnet_config
   ]

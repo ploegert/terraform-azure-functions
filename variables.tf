@@ -108,6 +108,11 @@ variable app_settings {
   type        = map
 }
 
+variable "settings" {}
+# variable "app_settings" {
+#   default = null
+# }
+
 
 
 variable "toggle_configure_dynatrace" { default="true" }

@@ -120,7 +120,7 @@ variable "toggle_configure_vnet_connection" { default="true" }
 variable "toggle_configure_consul_node" { default="true" }
 variable "toggle_configure_consul_service" { default="true" }
 variable "toggle_configure_infra_to_vault" { default="true" }
-variable "toggle_download_from_sa " { default="false" }
+variable "toggle_download_from_sa" { default="false" }
 variable "toggle_download_from_artifactory" { default="true" }
 
 

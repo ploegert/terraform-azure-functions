@@ -10,7 +10,7 @@ resource "time_sleep" "wait_x_seconds_after_creation" {
 
 #+=======================================================================================
 # Deploy function
-resource "null_resource" "deploy" {
+resource "null_resource" "sa_deploy" {
   count         = var.toggle_download_from_sa ? 1 : 0
   triggers = {
     version = local.file_version_name
@@ -34,7 +34,7 @@ resource "null_resource" "deploy" {
 
 #+=======================================================================================
 # Deploy function
-resource "null_resource" "deploy" {
+resource "null_resource" "artifactory_deploy" {
   count         = var.toggle_download_from_artifactory ? 1 : 0
   triggers = {
     version = local.file_version_name

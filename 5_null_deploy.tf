@@ -41,7 +41,7 @@ resource "null_resource" "deploy" {
   }
   provisioner "local-exec" {
     command = <<EOT
-      curl -u ${var.artifacts.artusername}:${var.artifacts.artpassword} "${var.artifacts.arturl}/artifactory/${var.artifacts.artrepo}/${var.functionapp.full_name}/${local.file_version_name}" -o ./${local.file_version_name}
+      curl -u ${var.artifacts.artusername}:${var.artifacts.artpassword} "${var.artifacts.arturl}/artifactory/${var.artifacts.artfunctionrepo}/${var.functionapp.full_name}/${local.file_version_name}" -o ./${local.file_version_name}
       az login --service-principal -u ${var.deployment.client_id} -p ${var.deployment.client_secret} --tenant ${var.deployment.tenant_id} --output tsv
       az account set --subscription ${var.deployment.subscription_id} --output tsv
       az functionapp deployment source config-zip -g ${var.common_vars.resource_group_name} -n ${var.functionapp.fn_name} --src ./${local.file_version_name}

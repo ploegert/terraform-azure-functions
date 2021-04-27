@@ -10,11 +10,7 @@ resource "vault_generic_secret" "func_id" {
   data_json = <<EOT
 {"value": "${azurerm_function_app.fnapp.id}"}
 EOT
-  depends_on = [
-    azurerm_function_app.fnapp, 
-    null_resource.sa_deploy,
-    null_resource.artifactory_deploy
-  ]
+depends_on = [azurerm_function_app.fnapp, null_resource.deploy]
 }
 
 resource "vault_generic_secret" "func_default_hostname" {
@@ -24,11 +20,7 @@ resource "vault_generic_secret" "func_default_hostname" {
   data_json = <<EOT
 {"value": "${azurerm_function_app.fnapp.default_hostname}"}
 EOT
-  depends_on = [
-    azurerm_function_app.fnapp, 
-    null_resource.sa_deploy,
-    null_resource.artifactory_deploy
-  ]
+  depends_on = [azurerm_function_app.fnapp, null_resource.deploy]
 }
 
 resource "vault_generic_secret" "fn_functionkeys" {
@@ -40,8 +32,7 @@ resource "vault_generic_secret" "fn_functionkeys" {
 EOT
   depends_on = [
     azurerm_function_app.fnapp, 
-    null_resource.sa_deploy,
-    null_resource.artifactory_deploy,
+    null_resource.deploy,
     data.azurerm_function_app_host_keys.keyextraction
   ]
 }
@@ -55,8 +46,7 @@ resource "vault_generic_secret" "fn_masterkeys" {
 EOT
   depends_on = [
     azurerm_function_app.fnapp, 
-    null_resource.sa_deploy,
-    null_resource.artifactory_deploy,
+    null_resource.deploy,
     data.azurerm_function_app_host_keys.keyextraction
   ]
 }

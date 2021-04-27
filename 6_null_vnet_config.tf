@@ -23,20 +23,7 @@ resource "null_resource" "vnet_config" {
       az account set --subscription ${var.deployment.subscription_id} --output tsv
       az functionapp vnet-integration add -g ${var.common_vars.resource_group_name} -n  ${var.functionapp.fn_name} --vnet ${var.function_vnet.vnet_id} --subnet ${var.function_vnet.subnet_name}"
     EOT
-  }
-
-  depends_on = [
-    azurerm_function_app.fnapp,
-    time_sleep.wait_x_seconds_after_creation,
-    null_resource.az_login,
-    null_resource.az_subscription_set,
-    null_resource.deploy,
-    time_sleep.wait_x_seconds_after_deploy
-  ]
-
-    EOT
-  }
- 
+  } 
   depends_on = [
     azurerm_function_app.fnapp,
     time_sleep.wait_x_seconds_after_creation,

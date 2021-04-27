@@ -4,13 +4,13 @@ resource "time_sleep" "wait_x_seconds_after_deploy" {
   create_duration = local.time_delay_in_secs
 
   depends_on = [
+    null_resource.deploy,
     azurerm_function_app.fnapp,
     time_sleep.wait_x_seconds_after_creation,
     null_resource.az_login,
     null_resource.az_subscription_set,
     null_resource.download,
-    null_resource.sa_deploy,
-    null_resource.artifactory_deploy
+    null_resource.deploy
   ]
 }
 
@@ -29,8 +29,7 @@ resource "null_resource" "vnet_config" {
     null_resource.az_login,
     null_resource.az_subscription_set,
     null_resource.download,
-    null_resource.sa_deploy,
-    null_resource.artifactory_deploy,
+    null_resource.deploy,
     time_sleep.wait_x_seconds_after_deploy
   ]
 }

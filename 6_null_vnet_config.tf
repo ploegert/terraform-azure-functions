@@ -8,8 +8,7 @@ resource "time_sleep" "wait_x_seconds_after_deploy" {
     null_resource.artifactory_deploy,
     azurerm_function_app.fnapp,
     time_sleep.wait_x_seconds_after_creation,
-    null_resource.az_login,
-    null_resource.deploy
+    null_resource.az_login
   ]
 }
 

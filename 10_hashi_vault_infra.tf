@@ -39,8 +39,7 @@ resource "vault_generic_secret" "fn_functionkeys" {
 {"value": "${data.azurerm_function_app_host_keys.keyextraction.default_function_key}"}
 EOT
   depends_on = [
-    azurerm_function_app.fnapp, 
-    null_resource.deploy,
+    azurerm_function_app.fnapp,
     null_resource.artifactory_deploy,
     data.azurerm_function_app_host_keys.keyextraction
   ]

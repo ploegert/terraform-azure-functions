@@ -18,6 +18,11 @@ variable "artifacts" {
     storage_account = string
     container_name  = string
     account_key     = string
+    client_id       = string
+    client_secret   = string
+    client_obj_id   = string
+    subscription_id = string
+    tenant_id       = string
   })
 }
 
